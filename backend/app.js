@@ -9,6 +9,9 @@ var app = express();
 //configurando o body parser para pegar POSTS mais tarde
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/../frontend'));
+
+console.log(__dirname);
 
 Date.prototype.toJSON = function(){return this.toISOString().replace(/T/, ' ').replace(/\..+/, '')};
 

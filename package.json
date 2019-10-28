@@ -1,12 +1,12 @@
 {
   "name": "nexus_works",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "backend/app.js",
   "author": "Mozar Baptista da Silva",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node app"
+    "start": "node backend/app"
   },
   "dependencies": {
     "cors": "^2.8.5",

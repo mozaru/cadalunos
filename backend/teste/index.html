@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello jQuery</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>
+
+
+function atualizarTela(data) {
+       console.log(data)
+       var table = document.createElement("table");
+       var tr = table.insertRow(-1);
+       for(var key in data[0])
+       {
+            var th = document.createElement("th");
+            th.innerHTML = key;
+            tr.appendChild(th);
+       }
+       for(var index in data) 
+       {
+            var tr = table.insertRow();
+            var obj = data[index];
+            for(var key in obj)
+            {
+                console.log(key);
+                var td = document.createElement("td");
+                td.innerHTML = obj[key];
+                tr.appendChild(td);
+            }
+        };
+        var divAlunos = document.getElementById("alunos");
+        divAlunos.innerHTML = "";
+        divAlunos.appendChild(table);
+    }
+
+$(document).ready(function() {
+    $.ajax({
+        url: "http://localhost:3000/alunos"
+    }).then(atualizarTela)
+    .fail(function(){
+        $.ajax({
+            url: "https://cadaluno.herokuapp.com/alunos"
+        }).then(atualizarTela)
+        .fail(
+            function(){
+                var divAlunos = document.getElementById("alunos");
+                divAlunos.innerHTML = "erro ao buscal localmente em http://localhost:3000/alunos e erro ao buscar no heroku https://cadaluno.herokuapp.com/alunos !";
+                divAlunos.appendChild(table);
+            }
+        )
+    })
+});            
+        </script>
+    </head>
+
+    <body>
+        <div id="alunos">
+        </div>
+    </body>
+</html>
