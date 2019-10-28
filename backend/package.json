@@ -1,0 +1,17 @@
+{
+  "name": "nexus_works",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "Mozar Baptista da Silva",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemailer": "^6.3.1",
+    "pg": "^7.12.1"
+  }
+}
